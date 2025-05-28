@@ -1,26 +1,30 @@
+import smartphone1 from "./assets/images/smartphone1.jpg";
+import smartphone3 from "./assets/images/smartphone3.jpg";
+import smartphone4 from "./assets/images/smartphone4.jpg";
+
 const product = {
   name: "MultiMode Phone",
   description: "Un smartphone intelligent adaptable à différents profils d’utilisateurs.",
   variants: [
     {
       mode: "Développeur",
-      name: "React Phone X",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-      description: "Conçu pour les développeurs avec des outils puissants et intégration React.",
+      name: "Samsung A 05",
+      image: smartphone1,
+      description: "Images simulées à des fins d’illustration, Mesurée en diagonale, la taille de l’écran est de 6,7 dans le rectangle complet et de 6,6 en tenant compte des angles arrondis La surface d’affichage réelle est inférieure en raison des angles arrondis et de l’encoche de l’appareil photo",
       price: "899€"
     },
     {
       mode: "Utilisateur simple",
-      name: "Iconic Phone Lite",
-      image: "https://cdn-icons-png.flaticon.com/512/888/888879.png",
-      description: "Un téléphone simple et intuitif pour tous les jours.",
+      name: "Galaxy S",
+      image: smartphone3,
+      description: "Mémoire de 128 Go ou plus · Mémoire · Appareil photo de 48 MP ou plus · Quadruple appareil photo · Taille de l'écran de 6.4 ” ou plus · Super AMOLED",
       price: "499€"
     },
     {
       mode: "Communicant",
-      name: "ChatWave 5G",
-      image: "https://cdn-icons-png.flaticon.com/512/1063/1063191.png",
-      description: "Optimisé pour la communication instantanée et les réseaux sociaux.",
+      name: "Samsung Galaxy Z Fold 2",
+      image: smartphone4,
+      description: "Ecran taille è.6 pouce Définition 2208 x 1768 pixels dalle super Amooled Fréquence d'affichage 120 Hz DPI 372 ppp Stokage Mémoire 256 Go.",
       price: "699€"
     }
   ]

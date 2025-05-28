@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import product from './product';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, Badge, Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
-
+import galaxyA23Img from "./assets/images/galaxy-a23.jpg"; // adapte le chemin si besoin
 function App() {
   const [variantIndex, setVariantIndex] = useState(0);
   const [firstName] = useState("Phina");
@@ -12,6 +12,8 @@ function App() {
     email: '',
     message: ''
   });
+  const [imageAnimation, setImageAnimation] = useState(true);
+
 
   if (!product.variants || product.variants.length === 0) {
     return <p>Erreur : Aucune variante de produit trouvée.</p>;
@@ -20,8 +22,13 @@ function App() {
   const variant = product.variants[variantIndex];
 
   const nextVariant = () => {
+  setImageAnimation(false); // Réinitialise
+  setTimeout(() => {
     setVariantIndex((prev) => (prev + 1) % product.variants.length);
-  };
+    setImageAnimation(true); // Relance l'animation
+  }, 50); // Petit délai pour que la classe soit réappliquée
+};
+
 
   const handleSend = () => {
     if (contact.name && contact.email && contact.message) {
@@ -54,23 +61,25 @@ function App() {
       {/* CONTENU PRINCIPAL */}
       <div className="d-flex justify-content-center align-items-center min-vh-100 bg-custom px-3">
         <div className="w-100" style={{ maxWidth: '450px' }}>
-          <Card key={variantIndex} className="text-center p-4 shadow-lg border-0 bg-white rounded-4 animate__animated animate__fadeIn">
+          <Card className="text-center p-4 shadow-lg border-0 bg-white rounded-4 animate__animated animate__fadeIn">
             <Card.Body>
               <Badge bg="info" className="mb-3 px-3 py-2 fs-6 rounded-pill">
                 Mode : {variant.mode}
               </Badge>
               <Card.Title className="mb-3 fs-3 fw-bold text-primary">{variant.name}</Card.Title>
               <Card.Img
-                variant="top"
-                src={variant.image}
-                alt={variant.name}
-                className="mx-auto d-block"
-                style={{
-                  width: "160px",
-                  borderRadius: "20px",
-                  boxShadow: "0 8px 16px rgba(0,0,0,0.15)"
-                }}
-              />
+  variant="top"
+  src={variant.image}
+  alt={variant.name}
+  className={`mx-auto d-block ${imageAnimation ? 'animate__animated animate__fadeIn' : ''}`}
+  style={{
+    width: "160px",
+    borderRadius: "20px",
+    boxShadow: "0 8px 16px rgba(0,0,0,0.15)"
+  }}
+/>
+
+
               <Card.Text className="mt-3 text-secondary fs-6 px-2">{variant.description}</Card.Text>
               <h4 className="mt-4 text-success fw-semibold">{variant.price}</h4>
               <Button
@@ -89,11 +98,11 @@ function App() {
             </p>
             {firstName && (
               <img
-                src="https://cdn-icons-png.flaticon.com/512/2922/2922561.png"
-                alt="User"
-                width="90"
-                className="rounded-circle shadow avatar-img"
-              />
+  src={galaxyA23Img}
+  alt="Galaxy A23"
+  width="90"
+  className="rounded-circle shadow avatar-img"
+/>
             )}
           </div>
         </div>
